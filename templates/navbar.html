@@ -1,0 +1,79 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg stroke py-2">
+        <h1>
+            <a class="navbar-brand" href="{% url "index" %}">
+                <h5>CARMEL COLLEGE</h5>
+            </a>
+        </h1>
+        <!-- if logo is image enable this
+<a class="navbar-brand" href="#index.html">
+<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+</a> -->
+        <button class="navbar-toggler  collapsed bg-gradient " type="button" data-toggle="collapse"
+            data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon fa icon-expand bi bi-list"></span>
+            <span class="navbar-toggler-icon fa icon-close bi bi-x-lg"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-lg-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="{% url "index" %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "departments" %}">Departments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "teachers" %}">Faculty</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "contact" %}">Contact Us</a>
+                </li>
+                {% if user.is_superuser or user.is_staff %}
+                <li class="nav-item">
+                    <a class="nav-link" href="admin">Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "home" %}">home</a>
+                </li>
+
+                {% endif %}
+
+                {% if user.is_authenticated and user.student %}
+            <li class="nav-item">
+              <a class="nav-link" href="">Profile</a>
+            </li>
+            {% endif %}
+
+                <!-- search button -->
+
+                {% if request.user.is_authenticated %}
+                <div class="search-right">
+                    <a href="{% url "logout" %}" class="btn button-style" title="search">Logout</a>
+                </div>
+                {% else %}
+                <div class="search-right">
+                    <a href="{% url "login" %}" class="btn button-style" title="search">login</a>
+                </div>
+                {% endif %}
+                <!-- //search button -->
+            </ul>
+        </div>
+        <!-- toggle switch for light and dark theme -->
+        <div class="cont-ser-position">
+            <nav class="navigation">
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox">
+                        <div class="mode-container">
+                            <i class="gg-sun"></i>
+                            <i class="gg-moon"></i>
+                        </div>
+                    </label>
+                </div>
+            </nav>
+        </div>
+        <!-- //toggle switch for light and dark theme -->
+    </nav>
+</div>

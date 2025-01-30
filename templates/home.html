@@ -1,0 +1,17 @@
+{% extends 'master.html' %}
+{% block content2 %}
+
+    <a target="_blank"  class="scan" href="{% url 'details' %}"><input type="submit" class=" btn bg-primary m-2"
+        name="btnAddMore" value="Run Scanner" /></a>
+        <script>
+            $(".scan").click(function () {
+                var postData = { csrfmiddlewaretoken: '{{ csrf_token }}' }
+                $.ajax({
+                    url: "{% url 'scan' %}",
+                    data: {
+        
+                    },
+                });
+            });
+        </script>
+{% endblock content2 %}

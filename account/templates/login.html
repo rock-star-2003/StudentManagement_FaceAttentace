@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}
+  login
+{% endblock %}
+{% block content %}
+
+<section class="contact py-5 " id="contact">
+  <div class="container py-md-4 py-3 mt-5 ">
+      <div class="title-main text-center mx-auto mb-md-4">
+          <h3 class="title-big">login</h3>
+      </div>
+      <div class="main-grid-contact">
+          <div class="row mt-5 mx-0 d-flex justify-content-center">
+              <!-- map -->
+              <!-- contact form -->
+              <div class="col-lg-6 content-form-right p-0">
+                  <div class="form-w3ls p-md-5 p-4">
+                      <form  method="post">
+                        {% csrf_token %}
+
+                        {% if messages %}
+                        <div class="alert alert-primary" role="alert">
+                          {% for message in messages %}
+                          {{ message }}
+                          {% endfor %}
+                        </div>
+                        {% endif %}
+                          <div class="row">
+                          </div>
+                          <div class="form-group">
+                              <input class="form-control " type="id" name="username" id="id" style="color: dimgray;"
+                                  placeholder="id" required="">
+                          </div>
+                          <div class="form-group">
+                              <input class="form-control clr" type="password" name="password" id="password" style="color: dimgray;"
+                                  placeholder="Password" required="">
+                          </div>
+                          <div class="input-group1 text-right">
+                              <button class="btn button-style w-100 rounded-2" type="submit">login</button>
+                          </div>
+                          <div class="input-group1 text-right w-100 d-flex justify-content-start pt-2">
+                            <a href="">Forgoten password?.</a>
+                        </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+{% endblock %}

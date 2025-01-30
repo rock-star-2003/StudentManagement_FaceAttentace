@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}home{% endblock title %}
+{% block content %}
+<section id="home" class="w3l-banner py-5">
+    <div class="container pt-5 pb-md-4">
+        <div class="row align-items-center">
+            <div class="col-md-6 banner-left pt-md-0 pt-5">
+                <h3 class="mb-sm-4 mb-3 title">This is the best place<br> to  <span class="type-js"><span
+                            class="text-js">Learn</span></span></h3>
+
+            </div>
+            {% load static %}
+            <div class="col-md-6 banner-right mt-md-0 mt-4">
+                <img class="img-fluid" src="{% static 'images/b1.png' %}" alt=" ">
+            </div>
+        </div>
+    </div>
+</section>
+{% include "card.html" %}
+{% include "aboutuslink.html" %}
+{% include "fecilities.html" %}
+{% endblock content %}
